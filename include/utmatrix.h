@@ -63,6 +63,7 @@ template <class ValType>
 TVector<ValType>::TVector(int s, int si)
 {
 	
+	
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> //конструктор копирования
@@ -185,7 +186,7 @@ TMatrix<ValType>::TMatrix(const TVector<TVector<ValType> > &mt):
 template <class ValType> // сравнение
 bool TMatrix<ValType>::operator==(const TMatrix<ValType> &mt) const
 {
-	return false;
+	return true;
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // сравнение
