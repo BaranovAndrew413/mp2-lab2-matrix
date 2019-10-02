@@ -73,7 +73,7 @@ TVector<ValType>::TVector(const TVector<ValType> &v)
 {
 	StartIndex = v.StartIndex;
 	Size = v.Size;
-	pVector = new TVector<ValType>[Size];
+	pVector = new ValType[Size];
 	for (int i = 0; i < Size; i++)
 		pVector[i] = v.pVector[i];
 
@@ -90,9 +90,9 @@ TVector<ValType>::~TVector()
 template <class ValType> // доступ
 ValType& TVector<ValType>::operator[](int pos)
 {
-	int i;
 	
-	return pVector[i-StartIndex];
+	
+	return pVector[pos-StartIndex];
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // сравнение
@@ -122,7 +122,7 @@ TVector<ValType>& TVector<ValType>::operator=(const TVector &v)
 		delete[] pVector;
 	Size = v.Size;
 	StartIndex = v.StartIndex;
-	pVector = new TVector<ValType>[Size];
+	pVector = new ValType[Size];
 	for (int i = 0; i < Size; i++)
 		pVector[i] = v.pVector[i];
 	return *this;
