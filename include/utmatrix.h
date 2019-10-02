@@ -20,6 +20,7 @@ template <class ValType>
 class TVector
 {
 protected:
+	int k1;
   ValType *pVector;
   int Size;       // размер вектора
   int StartIndex; // индекс первого элемента вектора
