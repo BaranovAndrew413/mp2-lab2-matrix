@@ -49,7 +49,8 @@ TEST(TVector, copied_vector_has_its_own_memory)
 		(*v)[i] = i;
 	TVector<int> v1(*v);
 	delete v;
-	EXPECT_EQ(v,0);
+
+	EXPECT_EQ(v1[1],1);
 }
 
 TEST(TVector, can_get_size)
