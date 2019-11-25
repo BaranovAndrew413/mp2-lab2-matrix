@@ -80,7 +80,7 @@ TVector<ValType>::TVector(const TVector<ValType> &v)
 	StartIndex = v.StartIndex;
 	Size = v.Size;
 	pVector = new ValType[Size];
-	for (int i = 0; i < Size +StartIndex; i++)
+	for (int i = 0; i < Size ; i++)
 		pVector[i] = v.pVector[i];
 
 
@@ -112,7 +112,7 @@ bool TVector<ValType>::operator==(const TVector &v) const
 	if (Size != v.Size) return false;
 	
 	
-	for (int i = StartIndex; i < Size + StartIndex; i++)
+	for (int i = 0; i < Size; i++)
 		{
 			if (pVector[i] != v.pVector[i])
 
@@ -131,7 +131,7 @@ bool TVector<ValType>::operator!=(const TVector &v) const
 			return false;
 		
 
-		for (int i = StartIndex; i <Size + StartIndex; i++)
+		for (int i = 0; i <Size ; i++)
 			{
 
 				if (pVector[i] != v.pVector[i])
@@ -153,7 +153,7 @@ TVector<ValType>& TVector<ValType>::operator=(const TVector &v)
 		StartIndex = v.StartIndex;
 		pVector = new ValType[Size];
 	}
-	for (int i = StartIndex; i < Size + StartIndex; i++)
+	for (int i = 0; i < Size; i++)
 		pVector[i] = v.pVector[i];
 	return *this;
 } /*-------------------------------------------------------------------------*/
@@ -162,7 +162,7 @@ template <class ValType> // прибавить скаляр
 TVector<ValType> TVector<ValType>::operator+(const ValType &val)
 {
 	TVector A(Size);
-	for (int i = StartIndex; i < Size + StartIndex; i++)
+	for (int i = 0; i < Size ; i++)
 	A.pVector[i] = pVector[i] + val;
 
 return A;
@@ -175,7 +175,7 @@ template <class ValType> // вычесть скаляр
 TVector<ValType> TVector<ValType>::operator-(const ValType &val)
 {
 	TVector A(Size);
-	for (int i = StartIndex; i < Size + StartIndex; i++)
+	for (int i = 0; i < Size ; i++)
 		A.pVector[i] = pVector[i]-val;
 
 	return A;
@@ -186,8 +186,8 @@ template <class ValType> // умножить на скаляр
 TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 {
 	TVector A(Size);
-	for (int i = StartIndex; i < Size + StartIndex; i++)
-		A.pVector[i] = val * pVector[i];
+	for (int i = 0; i < Size ; i++)
+		A.pVector[i] =  pVector[i]*val;
 
 	return A;
 } /*-------------------------------------------------------------------------*/
@@ -200,7 +200,7 @@ TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 	if (StartIndex != v.StartIndex)
 		throw StartIndex;
 	TVector A(Size);
-	for (int i = StartIndex; i < Size + StartIndex; i++)
+	for (int i = 0; i < Size; i++)
 		A.pVector[i] = pVector[i] + v.pVector[i];
 
 	return A;
@@ -214,7 +214,7 @@ TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v)
 	if (StartIndex != v.StartIndex)
 		throw StartIndex;
 	TVector A(Size);
-	for (int i = StartIndex; i < Size + StartIndex; i++)
+	for (int i = 0; i < Size; i++)
 		A.pVector[i] = pVector[i] - v.pVector[i];
 
 	return A;
@@ -230,7 +230,7 @@ ValType TVector<ValType>::operator*(const TVector<ValType> &v)
 	if (StartIndex != v.StartIndex)
 		throw StartIndex;
 	ValType c=0;
-	for (int i = StartIndex; i < Size + StartIndex; i++)
+	for (int i = 0; i < Size; i++)
 	{
 		c += pVector[i] * v.pVector[i];
 	}
